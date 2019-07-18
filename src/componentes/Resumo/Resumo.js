@@ -21,6 +21,14 @@ class Resumo extends Component{
         }
     }
 
+    componentDidMount(){
+        fetch("http://www.devup.com.br/php/api-dashboard/api/resumo")
+        .then(resultado => resultado.json()
+            .then(dados => this.setState(dados)
+            ) 
+            )
+    }
+
     render(){
         return(
             <div>
@@ -35,7 +43,7 @@ class Resumo extends Component{
                                     <div class="card bg-light">
                                     <div class="card-header">30 dias anteriores</div>
                                     <div class="card-body">
-
+                                        {this.state.consultas.consultas_30dias_anteiores}
                                     </div>
                                     </div>
                                 </div>
@@ -43,7 +51,7 @@ class Resumo extends Component{
                                     <div class="card bg-light">
                                     <div class="card-header">Próximos 30 dias</div>
                                     <div class="card-body">
-
+                                        {this.state.consultas.consultas_30dias_posteriores}
                                     </div>
                                     </div>
                                 </div>
@@ -56,15 +64,21 @@ class Resumo extends Component{
                                     <div class="card bg-light">
                                     <div class="card-header">30 dias anteriores</div>
                                     <div class="card-body">
-
+                                        {this.state.faturamento.anterior.valor.toLocaleString("pt-BR", {style: "currency", currency: "BRL"} )}
+                                        <span className="badge ml-1 badge-danger">
+                                            {this.state.faturamento.anterior.comparativo} %
+                                        </span>
                                     </div>
                                     </div>
                                 </div>
                                 <div className='col'>
                                     <div class="card bg-light">
-                                    <div class="card-header">Header</div>
+                                    <div class="card-header">Próximos 30 dias</div>
                                     <div class="card-body">
-
+                                        {this.state.faturamento.previsao.valor.toLocaleString("pt-BR",{style: "currency",currency: "BRL"})}
+                                        <span className="badge ml-1 badge-danger">
+                                            {this.state.faturamento.previsao.comparativo} %
+                                        </span>
                                     </div>
                                     </div>
                                 </div>
