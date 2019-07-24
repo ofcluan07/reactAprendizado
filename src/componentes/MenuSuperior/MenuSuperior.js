@@ -17,10 +17,10 @@ class MenuSuperior extends Component {
                         <a class="nav-link" href="/">Resumo</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Destaques</a>
+                        <a class="nav-link" href="/">Consultas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Preços</a>
+                        <a class="nav-link" href="/">Faturamento</a>
                     </li>
                     </ul>
                 </div>
